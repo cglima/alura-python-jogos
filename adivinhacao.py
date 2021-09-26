@@ -54,7 +54,8 @@ def jogar():
     print("Fim de jogo")
     print(20 * "=")
 
-print(f"Oi, eu sou o modulo adivinhação e meu nome é: {__name__}")
+#print(f"Oi, eu sou o modulo adivinhação e meu nome é: {__name__}")
+
 
 if __name__ == "__main__":
     jogar()
