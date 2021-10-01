@@ -1,24 +1,40 @@
 def jogar():
-    print(20 * "*")
+    print(33 * "*")
     print("***Bem vindo ao jogo da Forca!***")
-    print(20 * "*")
+    print(33 * "*")
 
-    palavra_secreta = "banana"
+    palavra_secreta = "banana".upper()
+    #list comprehenshion
+    letras_acertadas = ['_' for letra in palavra_secreta]
+
     enforcou = False
     acertou = False
+    erros = 0
 
-    while(not acertou and not enforcou):
+    while(not enforcou and not acertou):
 
         chute = input("Qual a letra? ")
-        chute = chute.strip()
+        chute = chute.strip().upper()
 
-        index = 0
-        for letra in palavra_secreta:
-            if chute.upper() == letra.upper():
-                print("Encontrei a letra {} na posição {}".format(letra, index))
-                index = index + 1
 
-        print("Jogando...")
+        if chute in palavra_secreta:
+            index = 0
+            for letra in palavra_secreta:
+                if chute == letra:
+                    letras_acertadas[index] = letra
+                index += 1
+        else:
+            erros += + 1
+
+        enforcou = erros == 6
+        acertou = '_' not in letras_acertadas
+        print(letras_acertadas)
+
+
+    if acertou:
+        print("Você ganhou!")
+    else:
+        print("Você perdeu!")
 
     print(20 * "=")
     print("Fim de jogo")
